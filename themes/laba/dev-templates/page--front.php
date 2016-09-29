@@ -1,8 +1,5 @@
 <div id="ip-container" class="ip-container">
-	<header class="preloader">
-		<img src="<?php print $base_path ;?>sites/all/themes/laba/images/logo-ani.gif" width="420" height="368"> 
-	</header>
-
+	<!--(bake parts/preloader.php)-->
 
 	<?php
 		$block = block_load('laba', 'frontworksblock');

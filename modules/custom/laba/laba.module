@@ -1,0 +1,65 @@
+<?php 
+
+/**
+* Implements hook_block_info().
+*/
+
+function laba_block_info() {
+    $blocks = array();
+    $blocks['frontworksblock'] = array(
+        'info' => t('FrontWorks'),
+        'cache' => DRUPAL_NO_CACHE,
+    );
+
+    return $blocks;
+}
+
+/**
+* Implements hook_block_view().
+*/
+function laba_block_view($delta = '') {
+    $block = array();
+
+    switch ($delta) {
+        case 'frontworksblock':
+            $block['subject'] = '';
+            $block['content'] = _frontworks_block();
+    break;
+  }
+
+  return $block;
+}
+
+function _frontworks_block() {
+    $output = '<div class="ip-main"><div id="pt-main" class="pt-perspective">';
+    $output = $output . '<div class="pt-page pt-page-0" style="background-image: url(' . "/sites/all/themes/laba/images/content/00.jpg" .')"></div>"';
+    $nodes = db_select('node', 'n');
+    $nodes->innerJoin('taxonomy_index', 't', 'n.nid = t.nid');
+    $nodes->fields('n', array('nid'));
+    //$nodes->fields('t', array('tid'));
+    $nodes->condition('n.type', 'work');
+    $nodes->condition('t.tid', 7);
+    $nodes->condition('n.status', 1);
+    $nodes->range(0, 10);
+    $result = $nodes->execute()->fetchCol();
+
+    $counter = 1;
+    foreach ($result as $nid) {
+        //$value = $value * 2;
+        $node = node_load($nid);
+        $counter++;
+
+        if ($node->field_cover) {
+            $img_url = $node->field_slider_preview['und'][0]['uri'];
+            $style = "background-image: url('" . image_style_url("squareworksonfront", $img_url) . "')";
+        } else {
+            $style = "";
+        }
+
+        $output = $output . '<div class="pt-page pt-page-' . $counter .'" style="' . $style . '"></div>';
+    }
+
+    $output = $output . '</div></div>';
+ 
+  return $output;
+}

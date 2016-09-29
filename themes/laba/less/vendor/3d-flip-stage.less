@@ -4,6 +4,19 @@ body.front {
 	overflow: hidden;
 }
 
+.ip-main {
+height: 1000px; //todo
+position: relative;
+opacity: 0;
+transition: all 2s ease-in-out;
+}
+
+.layout-switch {
+	.ip-main {
+		opacity: 1;
+	}
+}
+
 .pt-perspective {
 	position: relative;
 	width: 100%;
@@ -77,13 +90,21 @@ body.front {
 	color: rgba(0,0,0,0.1);
 }
 
+.pt-page {
+background-position: center center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	}
+
 .pt-page-1 {
-	background-image: url("https://static.pexels.com/photos/2855/landscape-mountains-nature-lake.jpg");
+	background-image: url("../images/00.jpg");
+	background-position: center center;
 	background-size: cover;
 }
 
 .pt-page-2 {
 	background-image: url("http://phandroid.s3.amazonaws.com/wp-content/uploads/2014/10/mountains.jpg");
+	background-position: center center;
 	background-size: cover;
 }
 

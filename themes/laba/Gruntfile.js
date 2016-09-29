@@ -70,9 +70,9 @@ module.exports = function(grunt) {
 
                 files: {
                     // files go here, like so:
-                    "templates/page.tpl.php": "dev-templates/page.tpl.php",
-					"templates/page--front.tpl.php": "dev-templates/page--front.tpl.php",
-					"templates/page--type-work.tpl.php": "dev-templates/page--type-work.tpl.php"
+                    "templates/page.tpl.php": "dev-templates/page.php",
+					"templates/page--front.tpl.php": "dev-templates/page--front.php",
+					"templates/page--type-work.tpl.php": "dev-templates/page--type-work.php"
                 }
             },
         },
