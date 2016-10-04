@@ -35,7 +35,13 @@ function _frontworks_block() {
     global $language;
 
     $output = '<div class="ip-main"><div id="pt-main" class="pt-perspective">';
-    $output = $output . '<div class="pt-page pt-page-0" style="background-image: url(' . "/sites/all/themes/laba/images/content/00.jpg" .')"></div>';
+    $output = $output . '<div class="pt-page pt-page-0" style="background-image: url(' . "/sites/all/themes/laba/images/content/00.jpg" .')">';
+    $output = $output . '<div class="container text-center"><div><img src="/sites/all/themes/laba/images/content/00-sign.png" /></div>';
+    $output = $output . '<div><img src="/sites/all/themes/laba/images/content/00-h1.png" /></div>';
+    $output = $output . '<h2>IN WWW SINCE MAY 2013</h2>';
+    $output = $output . '<div><img src="/sites/all/themes/laba/images/content/00-presents.png" /></div>';
+    $output = $output . '<div class="img-footer"><img src="/sites/all/themes/laba/images/content/00-image.png" /></div>';
+    $output = $output . '</div></div>';
     $nodes = db_select('node', 'n');
     $nodes->innerJoin('taxonomy_index', 't', 'n.nid = t.nid');
     $nodes->fields('n', array('nid'));
@@ -69,9 +75,10 @@ function _frontworks_block() {
 
         $alias = drupal_get_path_alias('node/' . $nid);
 
-        $output = $output . '<div class="pt-page pt-page-' . $counter .'" style="' . $style . '"><h2 id="shine" class="shine-title">' . $node->field_short_name['und'][0]['value'] . '</h2><h3><a href="/'. $alias .'">'. $node->title .'</a></h3>';
+        $output = $output . '<div class="pt-page pt-page-' . $counter .'" style="' . $style . '"><div class="container text-center">';
+        $output = $output . '<h2 id="shine" class="shine-title">' . $node->field_short_name['und'][0]['value'] . '</h2><h3><a href="/'. $alias .'">'. $node->title .'</a></h3>';
         $output = $output . render(field_view_field('node', $node, 'field_prev', array('label'=>'hidden')));
-        $output = $output . '<div class="film"><div class="film1"></div><div class="film2"></div></div></div>';
+        $output = $output . '</div><div class="film"><div class="film1"></div><div class="film2"></div></div></div>';
     }
 
     $output = $output . '</div></div>';

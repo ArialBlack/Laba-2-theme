@@ -227,3 +227,4 @@ node_modules/
 *.css
 .sass-cache/
 themes/laba/bower_components/
+themes/old/

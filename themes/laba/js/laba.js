@@ -17,14 +17,14 @@
             var shine = [];
             for (var i = 0; i < shines.length; i++) {
                 shine[i] =  new Shine(shines[i]);
+                shine[i].config.numSteps = 48;
                 shine[i].config.opacity = 1;
+                shine[i].config.opacityPow = 8;
+                shine[i].config.offset = 0.15;
+                shine[i].config.offsetPow = 0.3;
                 shine[i].config.blur = 0;
                 shine[i].config.blurPow = 0;
-                shine[i].config.opacityPow = 0.3;
-                shine[i].config.offset = 0.07;
-                shine[i].config.offsetPow = 2.7;
-                shine[i].config.numSteps = 64;
-                shine[i].config.shadowRGB = new shinejs.Color(150, 150, 150);
+                shine[i].config.shadowRGB = new shinejs.Color(17, 17, 17);
                 //https://github.com/bigspaceship/shine.js
             }
 
