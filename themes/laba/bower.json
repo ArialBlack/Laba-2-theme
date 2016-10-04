@@ -1,0 +1,21 @@
+{
+  "name": "laba2",
+  "description": "laba2 website",
+  "main": "",
+  "authors": [
+    "ArialBlack <andreyturik@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/ArialBlack/Laba-2-theme",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "shine": "~0.2.8"
+  }
+}

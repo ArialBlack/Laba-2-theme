@@ -3,19 +3,7 @@
 
 Modules - reusable parts of our design
 
--------------------------------- */
-.cd-container {
-  /* this class is used to give a max-width to the element it is applied to, and center it horizontally when it reaches that max-width */
-  width: 90%;
-  max-width: 768px;
-  margin: 0 auto;
-}
-.cd-container::after {
-  /* clearfix */
-  content: '';
-  display: table;
-  clear: both;
-}
+
 
 /* -------------------------------- 
 
@@ -56,14 +44,17 @@ Main components
 #cd-intro {
   position: relative;
   height: 300px;
-  margin-top: 50px;
   z-index: 1;
+  top: 0;
+  min-height: 450px;
 }
 #cd-intro #cd-intro-background {
   height: 100%;
   width: 100%;
-  background: url("https://static.pexels.com/photos/2855/landscape-mountains-nature-lake.jpg") no-repeat center center;
+  //background: url("https://static.pexels.com/photos/2855/landscape-mountains-nature-lake.jpg") no-repeat center center;
   background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
 }
 #cd-intro #cd-intro-tagline {
@@ -90,8 +81,8 @@ Main components
 }
 @media only screen and (min-width: 768px) {
   #cd-intro {
-    height: 400px;
-    margin-top: 70px;
+
+
   }
   #cd-intro h1 {
     font-size: 30px;
@@ -102,10 +93,10 @@ Main components
   #cd-intro {
     position: fixed;
     /* do not overlap the header */
-    top: 70px;
+
     left: 0;
     width: 100%;
-    height: 500px;
+
     margin-top: 0;
   }
   #cd-intro h1 {
@@ -119,7 +110,7 @@ Main components
   padding: 2em 0;
   line-height: 1.6;
   color: #65676f;
-  background-color: #f0f1e7;
+  background-color: @paper;
   z-index: 2;
 }
 .cd-content::before {
@@ -156,10 +147,6 @@ Main components
 @media only screen and (min-width: 1170px) {
   .cd-content {
     padding: 4em 0;
-    margin-top: 570px;
-  }
-  .cd-content p {
-    font-size: 20px;
-    font-size: 1.25rem;
+
   }
 }

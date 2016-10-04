@@ -72,6 +72,15 @@
 					endCurrPage = true;
 					if( endNextPage ) {
 						onEndAnimation( $currPage, $nextPage );
+                        //console.log($nextPage.find('.film1'));
+                        //$nextPage.find('.film1').fadeOut();
+                        //$nextPage.find('.film2').fadeOut()
+
+                        $nextPage.find('.film > div').addClass("ani");
+
+
+
+
 					}
 				} );
 		
@@ -80,11 +89,14 @@
 					endNextPage = true;
 					if( endCurrPage ) {
 						onEndAnimation( $currPage, $nextPage );
+                        console.log('2');
+                        $nextPage.find('.film > div').addClass("ani");
 					}
 				} );
 		
 				if( !support ) {
 					onEndAnimation( $currPage, $nextPage );
+                    console.log('3');
 				}
 		
 			}
@@ -119,13 +131,14 @@
 		
 				var $prevPage = $pages.eq( current ).addClass( 'pt-page-current' ),
 					outClass = 'pt-page-rotatePushBottom';
-				inClass = 'pt-page-moveFromTop';
+				    inClass = 'pt-page-moveFromTop';
 		
 				$currPage.addClass( outClass ).on( animEndEventName, function() {
 					$currPage.off( animEndEventName );
 					endCurrPage = true;
 					if( endNextPage ) {
 						onEndAnimation( $currPage, $prevPage );
+                        $prevPage.find('.film > div').addClass("ani");
 					}
 				} );
 		
@@ -134,6 +147,7 @@
 					endNextPage = true;
 					if( endCurrPage ) {
 						onEndAnimation( $currPage, $prevPage );
+                        $prevPage.find('.film > div').addClass("ani");
 					}
 				} );
 		

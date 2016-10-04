@@ -8,7 +8,7 @@ function laba_block_info() {
     $blocks = array();
     $blocks['frontworksblock'] = array(
         'info' => t('FrontWorks'),
-        'cache' => DRUPAL_NO_CACHE,
+       // 'cache' => DRUPAL_CACHE_GLOBAL,
     );
 
     return $blocks;
@@ -31,8 +31,11 @@ function laba_block_view($delta = '') {
 }
 
 function _frontworks_block() {
+    language_default();
+    global $language;
+
     $output = '<div class="ip-main"><div id="pt-main" class="pt-perspective">';
-    $output = $output . '<div class="pt-page pt-page-0" style="background-image: url(' . "/sites/all/themes/laba/images/content/00.jpg" .')"></div>"';
+    $output = $output . '<div class="pt-page pt-page-0" style="background-image: url(' . "/sites/all/themes/laba/images/content/00.jpg" .')"></div>';
     $nodes = db_select('node', 'n');
     $nodes->innerJoin('taxonomy_index', 't', 'n.nid = t.nid');
     $nodes->fields('n', array('nid'));
@@ -40,23 +43,35 @@ function _frontworks_block() {
     $nodes->condition('n.type', 'work');
     $nodes->condition('t.tid', 7);
     $nodes->condition('n.status', 1);
+    $nodes->condition('n.language', $language->language);
+    $nodes->orderBy('n.created','DESC');
     $nodes->range(0, 10);
     $result = $nodes->execute()->fetchCol();
 
-    $counter = 1;
+    $counter = 0;
     foreach ($result as $nid) {
         //$value = $value * 2;
         $node = node_load($nid);
         $counter++;
 
-        if ($node->field_cover) {
+        if ($node->field_slider_preview) {
             $img_url = $node->field_slider_preview['und'][0]['uri'];
-            $style = "background-image: url('" . image_style_url("squareworksonfront", $img_url) . "')";
+            $style = "background-image: url('" . image_style_url("frontworks", $img_url) . "')";
         } else {
             $style = "";
         }
 
-        $output = $output . '<div class="pt-page pt-page-' . $counter .'" style="' . $style . '"></div>';
+        if ($node->field_prev) {
+          $gif_path =  drupal_basename($node->field_prev['und'][0]['uri']);
+        } else {
+          $gif_path = "";
+        }
+
+        $alias = drupal_get_path_alias('node/' . $nid);
+
+        $output = $output . '<div class="pt-page pt-page-' . $counter .'" style="' . $style . '"><h2 id="shine" class="shine-title">' . $node->field_short_name['und'][0]['value'] . '</h2><h3><a href="/'. $alias .'">'. $node->title .'</a></h3>';
+        $output = $output . render(field_view_field('node', $node, 'field_prev', array('label'=>'hidden')));
+        $output = $output . '<div class="film"><div class="film1"></div><div class="film2"></div></div></div>';
     }
 
     $output = $output . '</div></div>';

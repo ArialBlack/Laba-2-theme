@@ -2,9 +2,9 @@ jQuery(document).ready(function($){
 	var introSection = $('#cd-intro-background'),
 		introSectionHeight = introSection.height(),
 		//change scaleSpeed if you want to change the speed of the scale effect
-		scaleSpeed = 0.3,
+		scaleSpeed = 0.2,
 		//change opacitySpeed if you want to change the speed of opacity reduction effect
-		opacitySpeed = 1; 
+		opacitySpeed = 0.5;
 	
 	//update this value if you change this breakpoint in the style.css file (or _layout.scss if you use SASS)
 	var MQ = 1170;
