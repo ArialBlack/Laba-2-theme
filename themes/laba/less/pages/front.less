@@ -17,7 +17,6 @@
     }
 
     a {
-        color: @paper;
         text-decoration: none;
     }
 
@@ -25,10 +24,13 @@
         color: white;
         text-transform: uppercase;
         font-family: 'NiteClub-Normal';
+        color: @paper;
     }
 
     h3 {
         font-family: 'arsenalregular';
+        color: @paper;
+        text-shadow: 1px 1px 0px rgba(0, 0, 0, 1);
     }
 
     .pt-page-0 {
@@ -48,6 +50,13 @@
                 }
             }
         }
+    }
 
+    .container_wrap {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
     }
 }

@@ -120,39 +120,41 @@ transition: all 2s ease-in-out;
                 animation-fill-mode: forwards;
             }
 
-
 			&.film1 {
-				background-image: url("/sites/all/themes/laba/images/smoke_1.png");
+				background-image: url("/sites/all/themes/laba/images/smoke_3.png");
+				height: 50%;
+				background-size: contain;
+				left: 30%;
 			}
 
 			&.film2 {
 				background-image: url("/sites/all/themes/laba/images/smoke_2.png");
+				background-size: contain;
+				height: 75%;
+				top: auto;
+				bottom: 0;
+			}
+
+			&.film3 {
+				background-image: url("/sites/all/themes/laba/images/smoke_1.png");
 			}
 		}
-	}
-
-	&.pt-page-0 {
-		z-index: 200;
-
-        .film1 {
-            z-index: 202;
-        }
-
-        .film2 {
-            z-index: 201;
-        }
 	}
 
 	&.pt-page-1 {
 		z-index: 190;
 
         .film1 {
-            z-index: 192;
+            z-index: 193;
         }
 
         .film2 {
-            z-index: 191;
+            z-index: 192;
         }
+
+		.film3 {
+			z-index: 191;
+		}
 	}
 
 	&.pt-page-2 {
