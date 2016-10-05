@@ -9,6 +9,7 @@
 
         function setCovers() {
             _setCover('#cd-intro', 'height');
+            _setCover('.cfw', 'height');
             _setCover('.cd-content', 'margin-top');
         }
 
@@ -44,6 +45,10 @@
 
         $( window ).resize(function() {
             setCovers();
+        });
+
+        $(document).on('infiniteScrollComplete', function(event, content) {
+            _setCover('.cfw', 'height');
         });
 
     });

@@ -45,12 +45,12 @@ else { }*/
   }
 
   $output = "";
-  $output = $output . '<a href="/node/' . $row->nid . '">';
-    $output = $output . '<div class="content-container">';
+  $output = $output . '<div class="cfw">';
+    $output = $output . '<div class="content-container"><div class="container">';
       $output = $output . '<h2 class="short_name">' . $row->field_field_short_name['0']['raw']['safe_value'] . '</h2>';
       $output = $output . '<h3 class="title">' . $row->node_title . '</h3>';
-      $output = $output . '<img src="' . $prev_img_url . '" />';
-    $output = $output . '</div>';
+      $output = $output . '<a class="link-2-work" href="/node/' . $row->nid . '"><img src="' . $prev_img_url . '" /></a>';
+    $output = $output . '</div></div>';
 
     $output = $output . '<div class="work-bg-container">';
       $output = $output . '<div class="work-bg-overlay" style="' . $prev_sl_style1 . '"></div>';
