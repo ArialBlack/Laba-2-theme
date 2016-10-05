@@ -226,3 +226,5 @@ node_modules/
 .ftpauth
 *.css
 .sass-cache/
+themes/laba/bower_components/
+themes/old/

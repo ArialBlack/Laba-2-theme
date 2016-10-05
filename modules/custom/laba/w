@@ -1,0 +1,12 @@
+<a href="/node/[nid]">
+    <div class="content-container">
+[field_short_name]
+[title]
+[field_prev]
+[nothing]
+    </div>
+    <div class="work-bg-container">
+        <div class="work-bg-default" style="background-image: url('[field_slider_preview]')"></div>
+        <div class="work-bg-overlay" style="background-image: url('[field_slider_preview_1]')"></div>
+    </div>
+</a>

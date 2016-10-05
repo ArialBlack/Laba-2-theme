@@ -50,6 +50,18 @@ scripts[] = 'js/bootstrap.min.js'
 scripts[] = 'js/tooltip.js'
 scripts[] = 'js/popover.js'
 
+scripts[] = 'bower_components/shine/dist/shine.min.js'
+scripts[] = 'js/vendor/modernizr.custom.js'
+scripts[] = 'js/vendor/preloading.js'
+scripts[] = 'js/vendor/page-scroll-zoom.js'
+scripts[] = 'js/vendor/classie.js'
+scripts[] = 'js/vendor/menu.js'
+
+scripts[] = 'js/vendor/modernizr.custom.js'
+scripts[] = 'js/vendor/pagetransitions.js'
+
+
+
 scripts[] = 'js/laba.js'
 
 

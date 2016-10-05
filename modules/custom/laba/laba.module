@@ -1,0 +1,83 @@
+<?php 
+
+/**
+* Implements hook_block_info().
+*/
+
+function laba_block_info() {
+    $blocks = array();
+    $blocks['frontworksblock'] = array(
+        'info' => t('FrontWorks'),
+       // 'cache' => DRUPAL_CACHE_GLOBAL,
+    );
+
+    return $blocks;
+}
+
+/**
+* Implements hook_block_view().
+*/
+function laba_block_view($delta = '') {
+    $block = array();
+
+    switch ($delta) {
+        case 'frontworksblock':
+            $block['subject'] = '';
+            $block['content'] = _frontworks_block();
+    break;
+  }
+
+  return $block;
+}
+
+function _frontworks_block() {
+    language_default();
+    global $language;
+
+    $output = '<div class="ip-main"><div id="pt-main" class="pt-perspective">';
+    $output = $output . '<div class="pt-page pt-page-0" style="background-image: url(' . "/sites/all/themes/laba/images/content/00.jpg" .')">';
+    $output = $output . '<div class="container text-center"><div><img src="/sites/all/themes/laba/images/content/00-sign.png" /></div>';
+    $output = $output . '<div><img src="/sites/all/themes/laba/images/content/00-h1.png" /></div>';
+    $output = $output . '<h2>IN WWW SINCE MAY 2013</h2>';
+    $output = $output . '<div><img src="/sites/all/themes/laba/images/content/00-presents.png" /></div>';
+    $output = $output . '<div class="img-footer"><img src="/sites/all/themes/laba/images/content/00-image.png" /></div>';
+    $output = $output . '</div></div>';
+    $nodes = db_select('node', 'n');
+    $nodes->innerJoin('field_data_field_top', 't', 'n.nid = t.entity_id');
+    $nodes->fields('n', array('nid'));
+    $nodes->condition('n.type', 'work');
+    $nodes->condition('t.field_top_value', 1);
+    $nodes->condition('n.status', 1);
+    $nodes->condition('n.language', $language->language);
+    $nodes->orderBy('n.created','DESC');
+    $nodes->range(0, 12);
+    $result = $nodes->execute()->fetchCol();
+
+    $counter = 0;
+    foreach ($result as $nid) {
+        $node = node_load($nid);
+        $counter++;
+        $style = "";
+        $type = "worktype-";
+
+        if ($node->field_slider_preview) {
+            $img_url = $node->field_slider_preview['und'][0]['uri'];
+            $style = "background-image: url('" . image_style_url("frontworks", $img_url) . "')";
+        }
+
+        if ($node->field_worktype) {
+            $type  = $type . $node->field_worktype['und'][0]['value'];
+        }
+
+        $alias = drupal_get_path_alias('node/' . $nid);
+
+        $output = $output . '<div class="pt-page pt-page-' . $counter . ' ' . $type . '" style="' . $style . '"><div class="container_wrap"><div class="container text-center">';
+        $output = $output . '<h2 id="shine" class="shine-title">' . $node->field_short_name['und'][0]['value'] . '</h2><h3>'. $node->title .'</h3>';
+        $output = $output . render(field_view_field('node', $node, 'field_prev', array('label'=>'hidden')));
+        $output = $output . '</div></div><a href="/'. $alias .'"><div class="film"><div class="film1"></div><div class="film2"></div><div class="film3"></div></div></a></div>';
+    }
+
+    $output = $output . '</div></div>';
+ 
+  return $output;
+}
