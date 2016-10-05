@@ -37,9 +37,9 @@ function _frontworks_block() {
     $output = '<div class="ip-main"><div id="pt-main" class="pt-perspective">';
     $output = $output . '<div class="pt-page pt-page-0" style="background-image: url(' . "/sites/all/themes/laba/images/content/00.jpg" .')">';
     $output = $output . '<div class="container text-center"><div><img src="/sites/all/themes/laba/images/content/00-sign.png" /></div>';
-    $output = $output . '<div><img src="/sites/all/themes/laba/images/content/00-h1.png" /></div>';
+    $output = $output . '<div class="top-banner"><img src="/sites/all/themes/laba/images/content/00-h1.png" /></div>';
     $output = $output . '<h2>IN WWW SINCE MAY 2013</h2>';
-    $output = $output . '<div><img src="/sites/all/themes/laba/images/content/00-presents.png" /></div>';
+    $output = $output . '<div class="presents-banner"><img src="/sites/all/themes/laba/images/content/00-presents.png" /></div>';
     $output = $output . '<div class="img-footer"><img src="/sites/all/themes/laba/images/content/00-image.png" /></div>';
     $output = $output . '</div></div>';
     $nodes = db_select('node', 'n');

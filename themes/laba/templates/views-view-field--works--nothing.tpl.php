@@ -45,12 +45,13 @@ else { }*/
   }
 
   $output = "";
-  $output = $output . '<div class="cfw">';
-    $output = $output . '<div class="content-container"><div class="container">';
+  $output = $output . '<div class="cfw text-center">';
+    $output = $output . '<div class="content-container"><div class="container text-center">';
       $output = $output . '<h2 class="short_name">' . $row->field_field_short_name['0']['raw']['safe_value'] . '</h2>';
       $output = $output . '<h3 class="title">' . $row->node_title . '</h3>';
-      $output = $output . '<a class="link-2-work" href="/node/' . $row->nid . '"><img src="' . $prev_img_url . '" /></a>';
-    $output = $output . '</div></div>';
+      $output = $output . '<a class="link-2-work" href="/node/' . $row->nid . '"><img class="img-circle" src="' . $prev_img_url . '" /></a>';
+      $output = $output .  '<div class="intro">' . $row->field_field_intro['0']['rendered']['#markup'] . '<a class="btn btn-default" href="/node/' . $row->nid . '">' . t('Read more') . '</a></div>';
+  $output = $output . '</div></div>';
 
     $output = $output . '<div class="work-bg-container">';
       $output = $output . '<div class="work-bg-overlay" style="' . $prev_sl_style1 . '"></div>';

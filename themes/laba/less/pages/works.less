@@ -16,14 +16,47 @@
             background-size: cover;
             background-position: center center;
             background-repeat: no-repeat;
+            height: 100%;
         }
 
         .work-bg-overlay {
             display: none;
         }
+    }
 
-        .work-bg-default {
-            height: 100%;
+    h2 {
+        .shine-title ();
+        .shine-title-static ();
+    }
+
+    .img-circle {
+        border-radius: 100%;
+        box-shadow: 0px 0px 18px 0px rgba(50, 50, 50, 0.75);
+        border: @paper 2px solid;
+        height: 200px;
+        width: auto;
+        transition: all 0.2s linear;
+    }
+
+    &.hovered {
+        h2,
+        h3,
+        .intro {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .work-bg-container {
+            .work-bg-overlay {
+                display: block;
+            }
+
+            .work-bg-default {
+               display: none
+            }
+        }
+
+        .img-circle {
+            //height: 300px;
         }
     }
 }

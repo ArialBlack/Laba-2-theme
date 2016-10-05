@@ -1,6 +1,7 @@
 .front {
     .field-name-field-prev {
         text-align: center;
+        margin-top: 120px;
 
         .field-item {
             display: inline-block;
@@ -11,8 +12,53 @@
            // box-shadow: 7px 7px 0px 0px rgba(50, 50, 50, 0.75);
             box-shadow:         0px 0px 18px 0px rgba(50, 50, 50, 0.75);
             border: @paper 2px solid;
-            height: 200px;
+            height: 280px;
             width: auto;
+        }
+
+        &:after {
+            content: '';
+            display: inline-block;
+            width: 461px;
+            height: 90px;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: contain;
+            margin-top: -40px;
+        }
+    }
+
+    &.i18n-uk {
+        .worktype-web {
+            .field-name-field-prev {
+                &:after {
+                    background-image: url('/sites/all/themes/laba/images/content/tag-web-ua.png');
+                }
+            }
+        }
+
+        .worktype-front {
+            .field-name-field-prev {
+                &:after {
+                    background-image: url('/sites/all/themes/laba/images/content/tag-front-ua.png');
+                }
+            }
+        }
+
+        .worktype-style {
+            .field-name-field-prev {
+                &:after {
+                    background-image: url('/sites/all/themes/laba/images/content/tag-style-ua.png');
+                }
+            }
+        }
+
+        .worktype-full {
+            .field-name-field-prev {
+                &:after {
+                    background-image: url('/sites/all/themes/laba/images/content/tag-full-ua.png');
+                }
+            }
         }
     }
 
@@ -25,12 +71,14 @@
         text-transform: uppercase;
         font-family: 'NiteClub-Normal';
         color: @paper;
+        margin-top: 80px;
     }
 
     h3 {
         font-family: 'arsenalregular';
         color: @paper;
         text-shadow: 1px 1px 0px rgba(0, 0, 0, 1);
+        margin-top: 40px;
     }
 
     .pt-page-0 {
@@ -39,6 +87,14 @@
             padding: 40px;
             box-sizing: border-box;
             height: 100%;
+
+            .top-banner {
+                margin-top: 60px;
+            }
+
+            h2 {
+                margin-top: 20px;
+            }
 
             div {
                 text-align: center;

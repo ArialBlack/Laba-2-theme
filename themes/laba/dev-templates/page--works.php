@@ -81,6 +81,8 @@
     <div id="perspective-wrapper"><!-- wrapper needed for scroll -->
 
       <div id="ip-container" class="ip-container">
+        <!--(bake parts/preloader.php)-->
+
         <a id="main-content"></a>
         <?php print render($title_prefix); ?>
         <?php if (!empty($title)): ?>
