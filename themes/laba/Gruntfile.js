@@ -73,7 +73,8 @@ module.exports = function(grunt) {
                     "templates/page.tpl.php": "dev-templates/page.php",
 					"templates/page--front.tpl.php": "dev-templates/page--front.php",
 					"templates/page--type-work.tpl.php": "dev-templates/page--type-work.php",
-                    "templates/page--works.tpl.php": "dev-templates/page--works.php"
+                    "templates/page--works.tpl.php": "dev-templates/page--works.php",
+                    "templates/page--node--24.tpl.php": "dev-templates/page--node--24.php"
                 }
             },
         },

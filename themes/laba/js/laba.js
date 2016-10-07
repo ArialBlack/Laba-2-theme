@@ -1,6 +1,8 @@
 (function ($) {
     $(function() {
 
+
+
         function getURLParameters(url) {
 
             var result = {};
@@ -76,6 +78,55 @@
         }
 
         $( document ).ready(function() {
+            if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+                $('body').addClass('mobile');
+            }
+            if (Modernizr.touch) {
+                $('body').addClass('mobile');
+            } else {
+                $('body').addClass('no-mobile');;
+            }
+
+            /* ==============================================
+             Animated Elements
+             =============================================== */
+            if( $('body').hasClass('mobile') ) {
+                $('section.animated').css({
+                    'display':'block',
+                    'visibility': 'visible'
+                });
+            }
+
+            if( $('body').hasClass('no-mobile') ) {
+                //alert ("nomob");
+
+
+                $('.appear.animated').appear();
+
+
+
+                    $('.appear.animated').on('appear', function() {
+                        console.log($(this).find(".short_name").text());
+
+                        var elem = $(this);
+                        var animation = elem.data('animation');
+                        if ( !elem.hasClass('visible') ) {
+
+                            var animationDelay = elem.data('animation-delay');
+                            if ( animationDelay ) {
+                                setTimeout(function(){
+                                    elem.addClass( animation + " visible" );
+                                }, animationDelay);
+                            } else {
+                                elem.addClass( animation + " visible" );
+                            }
+                        }
+                    });
+
+
+            }
+
+
             shineTitles();
             setCovers();
             addBodyClasses();
@@ -87,6 +138,31 @@
 
         $(document).on('infiniteScrollComplete', function(event, content) {
             _setCover('.cfw', 'height');
+            //$('.appear.animated').appear();
+            //
+            var y = $(window).scrollTop();  //your current y position on the page
+            $(window).scrollTop(y+750); //todo
+
+            $('.appear.animated').on('appear', function() {
+                console.log($(this).find(".short_name").text());
+
+
+
+
+                var elem = $(this);
+                var animation = elem.data('animation');
+                if ( !elem.hasClass('visible') ) {
+
+                    var animationDelay = elem.data('animation-delay');
+                    if ( animationDelay ) {
+                        setTimeout(function(){
+                            elem.addClass( animation + " visible" );
+                        }, animationDelay);
+                    } else {
+                        elem.addClass( animation + " visible" );
+                    }
+                }
+            });
 
             /*$oldShines = $('.shine-title');
             $oldShines.find('.shine-word, .shine-mask').remove();
